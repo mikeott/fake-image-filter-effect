@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible">
+    <title>Image Filter</title>
+</head>
+<body>
+    
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js?ver=1.11.3'></script>
+
+    <p>apply warm, cool, pink or green class to img</p>
+
+    <img src="people.jpg" class="warm" />
+    <img src="people.jpg" class="cool" />
+    <img src="people.jpg" class="pink" />
+    <img src="people.jpg" class="green" />
+
+    <script>
+        /* Required - output in footer */
+        jQuery('.warm').wrap( '<div class="image-filter warm"><div class="saturate"></div></div>' );
+        jQuery('.cool').wrap( '<div class="image-filter cool"><div class="saturate"></div></div>' );
+        jQuery('.pink').wrap( '<div class="image-filter pink"><div class="saturate"></div></div>' );
+        jQuery('.green').wrap( '<div class="image-filter green"><div class="saturate"></div></div>' );
+    </script>
+
+    <link rel='stylesheet' href='style.css' type='text/css' media='all' />
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran');
+
+$catamaran:    'Catamaran', sans-serif;
+$orange:    #ff6000;
+$yellow:    #fdc11e;
+
+$blue:      #0060ff;
+$aqua:      #00dcb5;
+
+$pink:      #fc00ff;
+$purple:    #440083;
+
+$green:     #b9ee00;
+$dark-green:#2d5600;
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $catamaran;
+}
+
+@mixin vertical-align {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.image-filter {
+    /* filter: hue-rotate(45deg); */
+    position: relative;
+    background: #000;
+    width: 100%;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+    }
+
+    img {
+        width: 100%;
+        display: block;
+        filter: grayscale(50%);
+        opacity: .3;
+    }
+
+    .saturate {
+        filter: contrast(3);
+    }
+
+    &.warm {
+        &::before {
+            background: linear-gradient(135deg, rgba($yellow, .8) 0%,rgba($orange, .8) 100%);
+        }
+    }
+    
+    &.cool {
+        &::before {
+            background: linear-gradient(135deg, rgba($blue, .8) 0%,rgba($aqua, .8) 100%);
+        }
+    }
+
+    &.pink {
+        &::before {
+            background: linear-gradient(135deg, rgba($pink, .8) 0%,rgba($purple, .8) 100%);
+        }
+    }
+
+    &.green {
+        &::before {
+            background: linear-gradient(135deg, rgba($green, .8) 0%,rgba($dark-green, .8) 100%);
+        }
+    }
+}
+
+p {
+    font-size: 5em;
+    margin: 0;
+    color: #fff;
+    font-weight: bold;
+    z-index: 11;
+    width: 40%;
+    line-height: 1em;
+    @include vertical-align;
+    left: 100px;
+}
